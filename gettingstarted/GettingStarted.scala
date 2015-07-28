@@ -55,7 +55,9 @@ object MyModule {
     println(formatAbs(-42))
     println(formatFactorial(5))
     println(formatFib(5))
+    // println(isSorted(Array(1, 2, 3, 4, 5), (a, b) => a <= b)) // <- Compile error
     println(isSorted(Array(1, 2, 3, 4, 5), (a: Int, b: Int) => a <= b))
+    println(isSorted[Int](Array(1, 2, 3, 4, 5), (a, b) => a <= b))
   }
 
 }
