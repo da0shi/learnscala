@@ -1,3 +1,5 @@
+package leanscala.gettingstarted
+
 object MyModule {
   def abs(n: Int): Int =
     if (n < 0) -n
@@ -50,6 +52,18 @@ object MyModule {
     }
     loop(as.head, as.tail)
   }
+
+  // Excercise 2.3
+  def curry[A, B, C](f: (A, B) => C): A => (B => C) =
+    a => b => f(a, b)
+
+  // Excercise 2.4
+  def uncurry[A, B, C](f: A => B => C): (A, B) => C =
+    (a, b) => f(a)(b)
+
+  // Excercise 2.5
+  def compose[A, B, C](f: B => C, g: A => B): A => C =
+    a => f(g(a))
 
   def main(args: Array[String]): Unit = {
     println(formatAbs(-42))
